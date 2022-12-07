@@ -1,0 +1,43 @@
+
+-- 
+select imie, nazwisko, data_urodzenia
+from studenci
+where datepart(month,data_urodzenia)=2
+
+
+
+
+
+-- zadanie 6
+select sum(liczba_godzin) as liczba_godzin
+from wyklady
+
+
+
+-- zadanie 2
+select distinct id_studenta
+from oceny_studentow
+where data_egzaminu between '20170301' and '20170331'
+order by id_studenta desc
+
+-- zadanie 10
+select id_studenta, id_wykladu
+from studenci_wyklady
+except
+select id_studenta, id_wykladu
+from oceny_studentow
+order by id_wykladu
+
+-- zadanie 11
+select id_studenta
+from studenci_wyklady
+where id_wykladu=4
+intersect
+select id_studenta
+from studenci_wyklady
+where id_wykladu=11
+
+
+--zadanie 5
+select count(id_wykladowcy) as Liczba_wykladowcow
+from wykladowcy
