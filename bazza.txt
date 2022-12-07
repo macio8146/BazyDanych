@@ -41,3 +41,17 @@ where id_wykladu=11
 --zadanie 5
 select count(id_wykladowcy) as Liczba_wykladowcow
 from wykladowcy
+
+
+select *
+from pracownicy
+where PESEL IS NULL or data_zatrudnienia is null
+
+
+select id_studenta as student_wykladowca, nr_grupy as grupa_katedra 
+from studenci
+where nr_grupy like 'DMIe%'
+union
+select id_wykladowcy, katedra
+from wykladowcy
+order by grupa_katedra asc
